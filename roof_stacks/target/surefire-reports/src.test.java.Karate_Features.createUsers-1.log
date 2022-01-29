@@ -1,0 +1,36 @@
+21:37:27.929 found scenario at line: 9 - ^Create User \- UserId Not\-null Kontrol$
+21:37:28.117 skipping bootstrap configuration: could not find or read file: classpath:karate-config.js
+21:37:29.726 request:
+1 > POST https://3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io/users
+1 > Accept-Encoding: gzip,deflate
+1 > Connection: Keep-Alive
+1 > Content-Length: 82
+1 > Content-Type: application/json; charset=UTF-8
+1 > Host: 3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io
+1 > User-Agent: Apache-HttpClient/4.5.5 (Java/1.8.0_261)
+{"firstname":"eyyup","lastname":"guzel","username":"eyp123","password":"abc1234*"}
+
+21:37:30.852 response time in milliseconds: 1129,41
+1 < 200
+1 < Access-Control-Allow-Origin: *
+1 < Connection: keep-alive
+1 < Content-Type: application/json; charset=utf-8
+1 < Date: Sat, 29 Jan 2022 18:37:31 GMT
+1 < ETag: W/"39-a74VP7aMI0DVQCdEVUU+M3TX744"
+1 < Server: nginx
+1 < Transfer-Encoding: chunked
+1 < Vary: Accept-Encoding
+1 < X-RateLimit-Limit: 120
+1 < X-RateLimit-Remaining: 118
+1 < X-RateLimit-Reset: 1643481475
+1 < x-srv-span: v=1;s=3a7d00ace3a13657
+1 < x-srv-trace: v=1;t=b89f7c711b210607
+{
+    "userId":"c4f6c088-f91b-494e-b7f0-a08f48df3180"
+}
+
+21:37:30.852 [print] {
+  "userId": "c4f6c088-f91b-494e-b7f0-a08f48df3180"
+}
+
+

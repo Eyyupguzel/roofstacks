@@ -1,0 +1,20 @@
+{
+  "data1": {
+    "firstname": "eyyup",
+    "lastname": "guzel",
+    "username": "eyp123",
+    "password": "abc1234*"
+  },
+  "data2": {
+    "firstname": "eyyup",
+    "lastname": "guzel",
+    "username": "eyp123"
+  },
+  "activate": {
+    "isActive": true
+  },
+  "puts": {
+    "firstname": "eyyup",
+    "lastname": "guzel"
+  }
+}
