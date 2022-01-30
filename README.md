@@ -1,252 +1,124 @@
 # RoofStacks
-## _Case Çalışması_
+## _Case Study_
 
-[![N|Solid](https://github.com/Eyyupguzel/roofstacks/blob/main/roof_stacks/src/test/java/Karate_Features/roof.png)](https://nodesource.com/products/nsolid)
+[![N|Solid](https:\\roofstacks.com\images\logo.png)](https://nodesource.com/products/nsolid)
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-# Karate Caseleri - Create User
-| Senaryo Adı | Senaryo Açıklaması | Risk | Öncelik | Regresyon Tipi | Beklenen Sonuç | Durum |
+# Intro 
+
+
+There are scenarios of service automations. An explanation of these scenarios and a general comment about the project have been added.Karate framework was used to write automation.While writing the cases, the name of the scenario and the description of the scenario, the risk of scenario, the precedence of the scenario, regression type, expected result,status  were determined.
+
+[![N|Solid](https:\\roofstacks.com\images\karate.png)](https://nodesource.com/products/nsolid)
+
+> Post method is used for Crate User service.Response time control was made to be less than 6 seconds.Checked that the userId value is not null as a result in the post methods.Controls were made considering the minimum and maximum values.Required fields were also checked.Since some cases are similar, they were written by changing the values in the same scenario with the scenario outline property.Even if we write an incorrect case because the services were mocked, status 200 was returned, so their status was determined as 200 while writing the scripts.Correct status values added as comments.
+
+# Karate Cases - Create User
+| Scenario Name | Scenario Description | Risk | Precedence | Regression Type | Expected Result | Status |
 |-------------| ------ | ------| ------ | ------| ------ | ------|
-| Create user - Min Deger | User create ederken içersindeki zorunlu input alanları alabileceği min değer ile girilir. | Orta | Orta | Günlük | Status Code 200 dönmesi beklenir. | OK |
-| Create user - Ara Deger | User create ederken içersindeki zorunlu input alanları alabileceği min ve max  değer aralığında girilir. | Orta | Orta | Günlük | Status Code 200 dönmesi beklenir. | OK |
-| Create User - Max Deger | User create ederken içersindeki zorunlu input alanları alabileceği max değer ile girilir. | Orta | Orta | Günlük | Status Code 200 dönmesi beklenir. | OK |
-| Create user - Firstname Bos Olması | User create ederken zorunlu olan firstname alanın boş bırakılması. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create user - Lastname Bos Olması | User create ederken zorunlu olan lastname alanın boş bırakılması. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create user - Username Bos Olması | User create ederken zorunlu olan username alanın boş bırakılması. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK
-| Create user - Firstname ve Lastname Bos Olması | User create ederken zorunlu olan firstname ve lastname alanlarının boş bırakılması. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create user - Firstname ve Username Bos Olması | User create ederken zorunlu olan firstname ve username alanlarının boş bırakılması. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create user - Lastname ve Username Bos Olması | User create ederken zorunlu olan lastname ve username alanlarının boş bırakılması. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create user - Firstname,Lastname ve Username Bos Olması | User create ederken zorunlu olan firstname,lastname ve username alanlarının boş bırakılması. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Firstname Alphanumeric | User create ederken Alpha only olması gereken firstname alanının Alphanumeric olarak girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Firstname Numeric | User create ederken Alpha only olması gereken firstname alanının Numeric olarak girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Firstname Symbol | User create ederken Alpha only olması gereken firstname alanının Symbol olarak girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Lastname Alphanumeric | User create ederken Alpha only olması gereken lastname alanının Alphanumeric olarak girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - lastname Numeric | User create ederken Alpha only olması gereken lastname alanının Numeric olarak girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Lastname Symbol | User create ederken Alpha only olması gereken lastname alanının Symbol olarak girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Username Alphanum only | User create ederken Alphanumeric olması gereken username alanının Alpha only olarak girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Username Numeric | User create ederken Alphanumeric olması gereken username alanının Numeric olarak girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Username Symbol | User create ederken Alphanumeric olması gereken username alanının Symbol olarak girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Firstname Min Değerin Altında | User create ederken firstname alanının min değerinin altında girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Lastname Min Değerin Altında | User create ederken lastname alanının min değerinin altında girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Username Min Değerin Altında | User create ederken username alanının min değerinin altında girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Firstname ve Lastname Min Değerin Altında | User create ederken firstname ve lastname alanlarının min değerinin altında girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Firstname ve Username Min Değerin Altında | User create ederken firstname ve username alanlarının min değerinin altında girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Lastname ve Username Min Değerin Altında | User create ederken lastname ve username alanlarının min değerinin altında girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - First,Lastname ve Username Min Değerin Altında | User create ederken first,lastname ve username alanlarının min değerinin altında girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Firstname Max Değerin Üstünde | User create ederken firstname alanının max değerinin üstünde girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Lastname Max Değerin Üstünde | User create ederken lastname alanının max değerinin üstünde girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Username Max Değerin Üstünde | User create ederken username alanının max değerinin üstünde girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Firstname ve Lastname Max Değerin Altında | User create ederken firstname ve lastname alanlarının max değerinin altında girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Firstname ve Username Max Değerin Altında | User create ederken firstname ve username alanlarının max değerinin altında girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Lastname ve Username Max Değerin Altında | User create ederken lastname ve username alanlarının max değerinin altında girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - First,Lastname ve Username Max Değerin Altında | User create ederken first,lastname ve username alanlarının max değerinin altında girilmesi. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Create User - Password Değerinin Girilmemesi | User create ederken zorunlu olmayan password alanının girilmemesi. | Düşük | Düşük | Günlük | Status Code 200 dönmesi beklenir. | OK |
-# Karate Caseleri - Get User List
-| Senaryo Adı | Senaryo Açıklaması | Risk | Öncelik | Regresyon Tipi | Beklenen Sonuç | Durum |
+| Create user - UserId Not-null Control | If the user id is not-null, it means the user has been created. | High | High | Daily | Status Code 200 | OK |
+| Create user - Response Time Control | It is checked that the response time is below a certain time. | Middle | Middle | Daily | Status Code 200 | OK |
+| Create user - Minimum Value | The user is created by entering the minimum value determined for the required fields. | Middle | Middle | Weekly | Status Code 201 | OK |
+| Create user - Intermediate Value | The user is created by entering the intermediate value determined for the required fields. | Middle | Middle | Weekly | Status Code 201 | OK |
+| Create user - Maximum Value | The user is created by entering the maximum value determined for the required fields. | Middle | Middle | Weekly | Status Code 201 | OK |
+| Create user - Leaving The Firstname Field Blank | The user is created by leaving the required firstname field blank. | High | High | Daily | Status Code 400 | OK |
+| Create user - Leaving The Lastname Field Blank | The user is created by leaving the required lastname field blank. | High | High | Daily | Status Code 400 | OK |
+| Create user - Leaving The Username Field Blank | The user is created by leaving the required username field blank. | High | High | Daily | Status Code 400 | OK |
+| Create user - Leaving The Firstname and Lastname Fields Blank | The user is created by leaving the required firstname and lastname fields blank. | High | High | Daily | Status Code 400 | OK |
+| Create user - Leaving The Firstname and Username Fields Blank | The user is created by leaving the required firstname and username fields blank. | High | High | Daily | Status Code 400 | OK |
+| Create user - Leaving The Lastname and Username Fields Blank | The user is created by leaving the required lastname and username fields blank. | High | High | Daily | Status Code 400 | OK |
+| Create user - Leaving The Firstname,Lastname and Username Fields Blank | The user is created by leaving the required firstname,lastname and username fields blank. | High | High | Daily | Status Code 400 | OK |
+| Create User - Firstname Alphanumeric | The user is created by entering alphanumeric  in the firstname field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Firstname Numeric | The user is created by entering numeric in the firstname field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Firstname Symbol | The user is created by entering symbol in the firstname field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Lastname Alphanumeric | The user is created by entering alphanumeric  in the lastname field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Lastname Numeric | The user is created by entering numeric in the lastname field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Lastname Symbol | The user is created by entering symbol in the lastname field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Username Numeric | The user is created by entering numeric in the username field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Username Symbol | The user is created by entering symbol in the username field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Firstname is Below Minimum Value | The user is created by entering a value below the minimum value in the firstname field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Lastname is Below Minimum Value | The user is created by entering a value below the minimum value in the lastname field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Username is Below Minimum Value | The user is created by entering a value below the minimum value in the username field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Firstname and Lastname are Below Minimum Value | The user is created by entering a value below the minimum value in the firstname and lastname fields. | High | High | Daily | Status Code 400 | OK |
+| Create User - Firstname and Username are Below Minimum Value | The user is created by entering a value below the minimum value in the firstname and username fields. | High | High | Daily | Status Code 400 | OK |
+| Create User - Lastname and Username are Below Minimum Value | The user is created by entering a value below the minimum value in the lastname and username fields. | High | High | Daily | Status Code 400 | OK |
+| Create User - Firstname,Lastname and Username are Below Minimum Value | The user is created by entering a value below the minimum value in the firstname,lastname and username fields. | High | High | Daily | Status Code 400 | OK |
+| Create User - Firstname is Below Maximum Value | The user is created by entering a value below the maximum value in the firstname field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Lastname is Below Maximum Value | The user is created by entering a value below the maximum value in the lastname field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Username is Below Maximum Value | The user is created by entering a value below the maximum value in the username field. | High | High | Daily | Status Code 400 | OK |
+| Create User - Firstname and Lastname are Below Maximum Value | The user is created by entering a value below the maximum value in the firstname and lastname fields. | High | High | Daily | Status Code 400 | OK |
+| Create User - Firstname and Username are Below Maximum Value | The user is created by entering a value below the maximum value in the firstname and username fields. | High | High | Daily | Status Code 400 | OK |
+| Create User - Lastname and Username are Below Maximum Value | The user is created by entering a value below the maximum value in the lastname and username fields. | High | High | Daily | Status Code 400 | OK |
+| Create User - Firstname,Lastname and Username are Below Maximum Value | The user is created by entering a value below the maximum value in the firstname,lastname and username fields. | High | High | Daily | Status Code 400 | OK |
+| Create User - Password Field Not Entered | The user is created without entering the unrequired password field.. | Low | Low | Monthly | Status Code 200 | OK |
+> Get method is used for Get User List service.The result has been checked to be correct.
+
+# Karate Cases - Get User List
+| Scenario Name | Scenario Description | Risk | Precedence | Regression Type | Expected Result | Status |
 |-------------| ------ | ------| ------ | ------| ------ | ------|
-| Get User List | Kullanıcı listesinin çağırılması. | Orta | Orta | Günlük | Status Code 200 dönmesi beklenir. | OK |
-# Karate Caseleri - Get User ById
-| Senaryo Adı | Senaryo Açıklaması | Risk | Öncelik | Regresyon Tipi | Beklenen Sonuç | Durum |
+| Get User List - Result Control | The user list is called and the result is checked. | Middle | Middle | Weekly | Status Code 200 | OK |
+
+> Get method is used for Get User By Id service.The result has been checked to be correct.The get method was used for an incorrect user information.
+
+# Karate Cases - Get User By Id
+| Scenario Name | Scenario Description | Risk | Precedence | Regression Type | Expected Result | Status |
 |-------------| ------ | ------| ------ | ------| ------ | ------|
-| Get User ById | Kullanıcı id'si ile kullanıcının çağırılması. | Orta | Orta | Günlük | Status Code 200 dönmesi beklenir. | OK |
-| Get User ById - Yanlış Kullanıcı Id'si | Yanlış kullanıcı id'si ile kullanıcı çağırılması. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-# Karate Caseleri - Remove User
-| Senaryo Adı | Senaryo Açıklaması | Risk | Öncelik | Regresyon Tipi | Beklenen Sonuç | Durum |
+| Get User By Id | The user is created and the created user information is called.The result is compared with the entered user information. | High | High | Daily | Status Code 200 | OK |
+| Get User ById - Wrong User Id | Information is called with wrong user id. | Middle | Middle | Weekly | Status Code 400 | OK |
+
+> Delete method is used for Remove User service.Checked for deleted user.The delete method was used for an incorrect user information.
+
+# Karate Cases - Remove User
+| Scenario Name | Scenario Description | Risk | Precedence | Regression Type | Expected Result | Status |
 |-------------| ------ | ------| ------ | ------| ------ | ------|
-| Remove User | Kullanıcı id'si ile kullanıcının silinmesi. | Yüksek | Yüksek | Günlük | Status Code 200 dönmesi beklenir. | OK |
-| Remove User - Yanlış Kullanıcı Id'si | Yanlış kullanıcı id'si ile kullanıcı silinmesi. | Orta | Orta | Günlük | Status Code 400 dönmesi beklenir. | OK |
-# Karate Caseleri - Remove User
-| Senaryo Adı | Senaryo Açıklaması | Risk | Öncelik | Regresyon Tipi | Beklenen Sonuç | Durum |
-|-------------| ------ | ------| ------- | ------| ------ | ------|
-| Switch User Activity - True | Kullanıcı id'si ile kullanıcıyı aktif etme. | Yüksek | Yüksek | Günlük | Status Code 200 dönmesi beklenir. | OK |
-| Switch User Activity - False | Kullanıcı id'si ile kullanıcıyı pasif etme. | Yüksek | Yüksek | Günlük | Status Code 200 dönmesi beklenir. | OK |
-| Switch User - isActive Boş | Kullanıcı aktifliği güncellenirken zorunlu olan isActive alanının boş bırakılması. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
-| Switch User -  - Boolean Değer Girmeme | isActive alanına boolean değer dışında bir değer girme. | Yüksek | Yüksek | Günlük | Status Code 400 dönmesi beklenir. | OK |
+| Remove User | The user given in the user_id variable is deleted. | High | High | Daily | Status Code 200 dönmesi | OK |
+| Remove User - Get The Deleted Customer | The deleted user is get again. | High | High | Daily | Status Code 200 dönmesi | OK |
+| Remove User - Wrong User Id | Deletion is done with wrong user information. | Middle | Middle | Weekly | Status Code 400 | OK |
+
+> Patch method is used for Switch User Activity service.The values of true and false are used for user activity.Leaving the isActive field blank.A value other than a boolean value is used.
+
+# Karate Cases - Switch User Activity
+| Scenario Name | Scenario Description | Risk | Precedence | Regression Type | Expected Result | Status |
+|-------------| ------ | ------| ------ | ------| ------ | ------|
+| Switch User Activity - True | The user's activity is updated to true. | High | High | Daily | Status Code 200 | OK |
+| Switch User Activity - False | The user's activity is updated to false. | High | High | Daily | Status Code 200 | OK |
+| Switch User - Leaving The isActive Field Blank  | User activity is changed without entering the isActivity field. | High | High | Daily | Status Code 400 | OK |
+| Switch User - Not Boolean | User activity is changed with a non-boolean value. | High | High | Daily | Status Code 400 | OK |
+
+> Put method is used for Crate User service.Checked that the userId value is not null as a result in the put methods.Controls were made considering the minimum and maximum values.Required fields were also checked.Since some cases are similar, they were written by changing the values in the same scenario with the scenario outline property.
+
+# Karate Cases - Update User Info
+| Scenario Name | Scenario Description | Risk | Precedence | Regression Type | Expected Result | Status |
+|-------------| ------ | ------| ------ | ------| ------ | ------|
+| Update User Info - UserId Not-null Control | If the user id is not-null, it means the user has been updated. | High | High | Daily | Status Code 200 | OK |
+| Update User Info - Minimum Value | The user is updated by entering the minimum value determined for the required fields. | Middle | Middle | Weekly | Status Code 201 | OK |
+| Update User Info - Intermediate Value | The user is updated by entering the intermediate value determined for the required fields. | Middle | Middle | Weekly | Status Code 201 | OK |
+| Update User Info - Maximum Value | The user is updated by entering the maximum value determined for the required fields. | Middle | Middle | Weekly | Status Code 201 | OK |
+| Update User Info - Leaving The Firstname Field Blank | The user is updated by leaving the required firstname field blank. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Leaving The Lastname Field Blank | The user is updated by leaving the required lastname field blank. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Leaving The Firstname and Lastname Fields Blank | The user is updated by leaving the required firstname and lastname fields blank. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Firstname Alphanumeric | The user is updated by entering alphanumeric  in the firstname field. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Firstname Numeric | The user is updated by entering numeric in the firstname field. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Firstname Symbol | The user is updated by entering symbol in the firstname field. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Lastname Alphanumeric | The user is updated by entering alphanumeric  in the lastname field. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Lastname Numeric | The user is updated by entering numeric in the lastname field. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Lastname Symbol | The user is updated by entering symbol in the lastname field. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Username Numeric | The user is updated by entering numeric in the username field. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Username Symbol | The user is updated by entering symbol in the username field. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Firstname is Below Minimum Value | The user is updated by entering a value below the minimum value in the firstname field. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Lastname is Below Minimum Value | The user is updated by entering a value below the minimum value in the lastname field. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Firstname and Lastname are Below Minimum Value | The user is updated by entering a value below the minimum value in the firstname and lastname fields. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Firstname is Below Maximum Value | The user is updated by entering a value below the maximum value in the firstname field. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Lastname is Below Maximum Value | The user is updated by entering a value below the maximum value in the lastname field. | High | High | Daily | Status Code 400 | OK |
+| Update User Info - Firstname and Lastname are Below Maximum Value | The user is updated by entering a value below the maximum value in the firstname and lastname fields. | High | High | Daily | Status Code 400 | OK |
+
+## _Karate Reports_
+Karate presents our automation results as a ready report.
 
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
-AngularJS-powered HTML5 Markdown editor.
 
-- Type some Markdown on the left
-- See HTML in the right
-- ✨Magic ✨
+ ✨Eyyüp Güzel✨
 
-## Features
 
-- Import a HTML file and watch it magically convert to Markdown
-- Drag and drop images (requires your Dropbox account be linked)
-- Import and save files from GitHub, Dropbox, Google Drive and One Drive
-- Drag and drop markdown and HTML files into Dillinger
-- Export documents as Markdown, HTML and PDF
 
-Markdown is a lightweight markup language based on the formatting conventions
-that people naturally use in email.
-As [John Gruber] writes on the [Markdown site][df1]
 
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
-
-This text you see here is *actually- written in Markdown! To get a feel
-for Markdown's syntax, type some text into the left window and
-watch the results in the right.
-
-## Tech
-
-Dillinger uses a number of open source projects to work properly:
-
-- [AngularJS] - HTML enhanced for web apps!
-- [Ace Editor] - awesome web-based text editor
-- [markdown-it] - Markdown parser done right. Fast and easy to extend.
-- [Twitter Bootstrap] - great UI boilerplate for modern web apps
-- [node.js] - evented I/O for the backend
-- [Express] - fast node.js network app framework [@tjholowaychuk]
-- [Gulp] - the streaming build system
-- [Breakdance](https://breakdance.github.io/breakdance/) - HTML
-to Markdown converter
-- [jQuery] - duh
-
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
-
-## Installation
-
-Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
-
-Install the dependencies and devDependencies and start the server.
-
-```sh
-cd dillinger
-npm i
-node app
-```
-
-For production environments...
-
-```sh
-npm install --production
-NODE_ENV=production node app
-```
-
-## Plugins
-
-Dillinger is currently extended with the following plugins.
-Instructions on how to use them in your own application are linked below.
-
-| Plugin | README |
-| ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
-
-## Development
-
-Want to contribute? Great!
-
-Dillinger uses Gulp + Webpack for fast developing.
-Make a change in your file and instantaneously see your updates!
-
-Open your favorite Terminal and run these commands.
-
-First Tab:
-
-```sh
-node app
-```
-
-Second Tab:
-
-```sh
-gulp watch
-```
-
-(optional) Third:
-
-```sh
-karma test
-```
-
-#### Building for source
-
-For production release:
-
-```sh
-gulp build --prod
-```
-
-Generating pre-built zip archives for distribution:
-
-```sh
-gulp build dist --prod
-```
-
-## Docker
-
-Dillinger is very easy to install and deploy in a Docker container.
-
-By default, the Docker will expose port 8080, so change this within the
-Dockerfile if necessary. When ready, simply use the Dockerfile to
-build the image.
-
-```sh
-cd dillinger
-docker build -t <youruser>/dillinger:${package.json.version} .
-```
-
-This will create the dillinger image and pull in the necessary dependencies.
-Be sure to swap out `${package.json.version}` with the actual
-version of Dillinger.
-
-Once done, run the Docker image and map the port to whatever you wish on
-your host. In this example, we simply map port 8000 of the host to
-port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
-
-```sh
-docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger <youruser>/dillinger:${package.json.version}
-```
-
-> Note: `--capt-add=SYS-ADMIN` is required for PDF rendering.
-
-Verify the deployment by navigating to your server address in
-your preferred browser.
-
-```sh
-127.0.0.1:8000
-```
-
-## License
-
-MIT
-
-**Free Software, Hell Yeah!**
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-   [dill]: <https://github.com/joemccann/dillinger>
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
-   [node.js]: <http://nodejs.org>
-   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
-   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-   [express]: <http://expressjs.com>
-   [AngularJS]: <http://angularjs.org>
-   [Gulp]: <http://gulpjs.com>
-
-   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
