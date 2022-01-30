@@ -5,22 +5,28 @@ Feature: user Details
     * url 'https://3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io/users'
 
 
-
-  Scenario: Create User - UserId Not-null Kontrol
+    # If the user id is not-null, it means the user has been created.
+  Scenario: Create User - UserId Not-null Control
     And request user.data1
     When method post
     Then status 200
+   # Then status 201 ----> bu case normalde 201 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
     And match response.userId == '#notnull'
-    #And match response contains {data1: { "firstname" : "#string", "lastname" : "#string"}}
 
-  Scenario: Create User - UserId Not-null Kontrol
+
+
+    # It is checked that the response time is below a certain time.
+  Scenario: Create User - Resonse Time Control
     And request user.data1
     When method post
     Then status 200
+   # Then status 201 ----> bu case normalde 201 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
     And match response.userId == '#notnull'
     * assert responseTime < 6000
+
+
 
     #The user is created by entering the minimum, maximum and intermediate values determined for the required fields.
     #Using the Scenario Outline, the same scenario is run with different values.
@@ -37,7 +43,8 @@ Feature: user Details
     Then status 200
     #Then status 201 ----> bu case normalde 201 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
-    * assert responseTime < 4000
+    And match response.userId == '#notnull'
+    * assert responseTime < 6000
     Examples:
       | fname | lname | uname |
       | ey    | gu    | eyp1    |
@@ -62,6 +69,8 @@ Feature: user Details
     Then status 200
     #Then status 400 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
+    And match response.userId == '#notnull'
+    * assert responseTime < 6000
     Examples:
       | fname | lname | uname |
       |       | guzel | eyp123|
@@ -86,6 +95,8 @@ Feature: user Details
     Then status 200
     #Then status 400 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
+    And match response.userId == '#notnull'
+    * assert responseTime < 6000
     Examples:
       | fname | lname | uname |
       | eyyup1| guzel | eyp123|
@@ -107,6 +118,8 @@ Feature: user Details
     Then status 200
    # Then status 400 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
+    And match response.userId == '#notnull'
+    * assert responseTime < 6000
     Examples:
       | fname | lname | uname |
       | eyyup |guzel12| eyp123|
@@ -128,6 +141,8 @@ Feature: user Details
     Then status 200
    # Then status 400 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
+    And match response.userId == '#notnull'
+    * assert responseTime < 6000
     Examples:
       | fname | lname | uname |
       | eyyup | guzel | 12345 |
@@ -148,6 +163,8 @@ Feature: user Details
     Then status 200
    # Then status 400 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
+    And match response.userId == '#notnull'
+    * assert responseTime < 6000
     Examples:
       | fname | lname | uname |
       | e     | guzel | eyp123|
@@ -173,6 +190,8 @@ Feature: user Details
     Then status 200
    # Then status 400 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
+    And match response.userId == '#notnull'
+    * assert responseTime < 6000
     Examples:
       | fname | lname | uname |
       | eyyupguzeleyyupguzeleyyupguzeleyyupguzeleyyupguzeleyyup | guzel | eyp123|
@@ -183,7 +202,7 @@ Feature: user Details
       | eyyup | guzeleyyupguzeleyyupguzeleyyupguzeleyyupguzeleyyupguzel     | eyyupguzel1234567   |
       | eeyyupguzeleyyupguzeleyyupguzeleyyupguzeleyyupguzeleyyup | guzeleyyupguzeleyyupguzeleyyupguzeleyyupguzeleyyupguzel     | eyyupguzel1234567   |
 
-        # The user is created without entering the unrequired password field.
+   # The user is created without entering the unrequired password field.
   Scenario: Create User - Password Field Not Entered
     And request user.data2
     When method post
