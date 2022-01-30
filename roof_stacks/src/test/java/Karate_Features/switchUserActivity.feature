@@ -19,8 +19,10 @@ Feature: switchUserActivity
     * def act = user.activate.isActive
     Then print user_id
     Then print act
+    And match response.userId == '#notnull'
     And match response.userId == user_id
     And match response.isActive == act
+
 
 
     # The user's activity is updated to true.
@@ -62,6 +64,7 @@ Feature: switchUserActivity
     And request user.activate2
     When method patch
     Then status 200
+   # Then status 400 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
     * def user_id = "c4f6c088-f91b-494e-b7f0-a08f48df3180"
     * def act = user.activate2.isActive
@@ -69,5 +72,3 @@ Feature: switchUserActivity
     Then print act
     And match response.userId == user_id
     And match response.isActive == act
-
-    # alınan hata kontrollerine bakk , status kodlar nasıl girilmeli
