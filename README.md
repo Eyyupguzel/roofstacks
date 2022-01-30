@@ -71,8 +71,8 @@ There are scenarios of service automations. An explanation of these scenarios an
 # Karate Cases - Remove User
 | Scenario Name | Scenario Description | Risk | Precedence | Regression Type | Expected Result | Status |
 |-------------| ------ | ------| ------ | ------| ------ | ------|
-| Remove User | The user given in the user_id variable is deleted. | High | High | Daily | Status Code 204 dönmesi | OK |
-| Remove User - Get The Deleted Customer | The deleted user is get again. | High | High | Daily | Status Code 400 dönmesi | OK |
+| Remove User | The user given in the user_id variable is deleted. | High | High | Daily | Status Code 204 | OK |
+| Remove User - Get The Deleted Customer | The deleted user is get again. | High | High | Daily | Status Code 400 | OK |
 | Remove User - Wrong User Id | Deletion is done with wrong user information. | Middle | Middle | Weekly | Status Code 404 | OK |
 
 > Patch method is used for Switch User Activity service.The values of true and false are used for user activity.Leaving the isActive field blank.A value other than a boolean value is used.
