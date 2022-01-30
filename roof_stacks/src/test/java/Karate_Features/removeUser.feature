@@ -12,9 +12,9 @@ Feature: removeUser
     Then print response
 
 
-    # The deleted user is called again.
+    # The deleted user is get again.
     # It gets fail.
-  Scenario: Remove User
+  Scenario: Remove User - Get The Deleted Customer
     * def user_id = "c4f6c088-f91b-494e-b7f0-a08f48df3180"
     * def requestUrl = "https://3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io/users/" + user_id
     Given url requestUrl

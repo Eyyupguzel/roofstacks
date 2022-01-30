@@ -17,7 +17,7 @@ Feature: user Details
 
 
     # It is checked that the response time is below a certain time.
-  Scenario: Create User - Resonse Time Control
+  Scenario: Create User - Response Time Control
     And request user.data1
     When method post
     Then status 200

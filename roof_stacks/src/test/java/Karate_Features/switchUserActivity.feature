@@ -45,7 +45,7 @@ Feature: switchUserActivity
 
     # User activity is changed without entering the isActivity field.
     # It gets fail.
-  Scenario: Get User List - isActivty Null
+  Scenario: Get User List - Leaving The isActive Field Blank
     Given url 'https://3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io/users/c4f6c088-f91b-494e-b7f0-a08f48df3180/activity'
     When method patch
     Then status 200
