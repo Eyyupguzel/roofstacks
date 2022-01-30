@@ -1,4 +1,4 @@
-Feature: getUserList
+Feature: getUserList_Id
 
   Background:
     * def user = read('data.json')
@@ -48,8 +48,6 @@ Feature: getUserList
     Given path 21-12312
     When method get
     Then status 200
-    #Then status 404 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
+    #Then status 400 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
-    * assert responseTime < 3000
-
-
+    * assert responseTime < 6000
