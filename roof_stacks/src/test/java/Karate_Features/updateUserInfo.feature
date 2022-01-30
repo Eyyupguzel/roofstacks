@@ -11,7 +11,6 @@ Feature: updateUserInfo
     And request user.puts
     When method post
     Then status 200
-   # Then status 201 ----> bu case normalde 201 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
     And match response.userId == '#notnull'
 
@@ -24,13 +23,12 @@ Feature: updateUserInfo
     * def requestUrl = "https://3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io/users/" + user_id
     Given url requestUrl
     And request user.puts
-    * def fname = user.puts.firstname
-    * def lname = user.puts.lastname
-    * set user.puts.firstname = '<fname>'
-    * set user.puts.lastname = '<lname>'
+    * def fname = user.puts.firstName
+    * def lname = user.puts.lastName
+    * set user.puts.firstName = '<fname>'
+    * set user.puts.lastName = '<lname>'
     When method put
     Then status 200
-   # Then status 201 ----> bu case normalde 201 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
     And match response.userId == '#notnull'
 
@@ -49,10 +47,10 @@ Feature: updateUserInfo
     * def requestUrl = "https://3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io/users/" + user_id
     Given url requestUrl
     And request user.puts
-    * def fname = user.puts.firstname
-    * def lname = user.puts.lastname
-    * set user.puts.firstname = '<fname>'
-    * set user.puts.lastname = '<lname>'
+    * def fname = user.puts.firstName
+    * def lname = user.puts.lastName
+    * set user.puts.firstName = '<fname>'
+    * set user.puts.lastName = '<lname>'
     When method put
     Then status 200
     #Then status 400 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
@@ -71,10 +69,10 @@ Feature: updateUserInfo
     * def requestUrl = "https://3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io/users/" + user_id
     Given url requestUrl
     And request user.puts
-    * def fname = user.puts.firstname
-    * def lname = user.puts.lastname
-    * set user.puts.firstname = '<fname>'
-    * set user.puts.lastname = '<lname>'
+    * def fname = user.puts.firstName
+    * def lname = user.puts.lastName
+    * set user.puts.firstName = '<fname>'
+    * set user.puts.lastName = '<lname>'
     When method put
     Then status 200
     #Then status 400 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
@@ -95,10 +93,10 @@ Feature: updateUserInfo
     * def requestUrl = "https://3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io/users/" + user_id
     Given url requestUrl
     And request user.puts
-    * def fname = user.puts.firstname
-    * def lname = user.puts.lastname
-    * set user.puts.firstname = '<fname>'
-    * set user.puts.lastname = '<lname>'
+    * def fname = user.puts.firstName
+    * def lname = user.puts.lastName
+    * set user.puts.firstName = '<fname>'
+    * set user.puts.lastName = '<lname>'
     When method put
     Then status 200
     #Then status 400 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
@@ -117,8 +115,8 @@ Feature: updateUserInfo
     * def requestUrl = "https://3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io/users/" + user_id
     Given url requestUrl
     And request user.puts
-    * def fname = user.puts.firstname
-    * def lname = user.puts.lastname
+    * def fname = user.puts.firstName
+    * def lname = user.puts.lastName
     * set user.puts.firstname = '<fname>'
     * set user.puts.lastname = '<lname>'
     When method put
@@ -141,8 +139,8 @@ Feature: updateUserInfo
     And request user.puts
     * def fname = user.puts.firstname
     * def lname = user.puts.lastname
-    * set user.puts.firstname = '<fname>'
-    * set user.puts.lastname = '<lname>'
+    * set user.puts.firstName = '<fname>'
+    * set user.puts.lastName = '<lname>'
     When method post
     Then status 200
     #Then status 400 ----> bu case normalde 400 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
