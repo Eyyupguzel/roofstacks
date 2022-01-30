@@ -16,8 +16,8 @@ There are scenarios of service automations. An explanation of these scenarios an
 # Karate Cases - Create User
 | Scenario Name | Scenario Description | Risk | Precedence | Regression Type | Expected Result | Status |
 |-------------| ------ | ------| ------ | ------| ------ | ------|
-| Create user - UserId Not-null Control | If the user id is not-null, it means the user has been created. | High | High | Daily | Status Code 200 | OK |
-| Create user - Response Time Control | It is checked that the response time is below a certain time. | Middle | Middle | Daily | Status Code 200 | OK |
+| Create user - UserId Not-null Control | If the user id is not-null, it means the user has been created. | High | High | Daily | Status Code 201 | OK |
+| Create user - Response Time Control | It is checked that the response time is below a certain time. | Middle | Middle | Daily | Status Code 201 | OK |
 | Create user - Minimum Value | The user is created by entering the minimum value determined for the required fields. | Middle | Middle | Weekly | Status Code 201 | OK |
 | Create user - Intermediate Value | The user is created by entering the intermediate value determined for the required fields. | Middle | Middle | Weekly | Status Code 201 | OK |
 | Create user - Maximum Value | The user is created by entering the maximum value determined for the required fields. | Middle | Middle | Weekly | Status Code 201 | OK |
@@ -50,7 +50,7 @@ There are scenarios of service automations. An explanation of these scenarios an
 | Create User - Firstname and Username are Below Maximum Value | The user is created by entering a value below the maximum value in the firstname and username fields. | High | High | Daily | Status Code 400 | OK |
 | Create User - Lastname and Username are Below Maximum Value | The user is created by entering a value below the maximum value in the lastname and username fields. | High | High | Daily | Status Code 400 | OK |
 | Create User - Firstname,Lastname and Username are Below Maximum Value | The user is created by entering a value below the maximum value in the firstname,lastname and username fields. | High | High | Daily | Status Code 400 | OK |
-| Create User - Password Field Not Entered | The user is created without entering the unrequired password field.. | Low | Low | Monthly | Status Code 200 | OK |
+| Create User - Password Field Not Entered | The user is created without entering the unrequired password field.. | Low | Low | Monthly | Status Code 201 | OK |
 > Get method is used for Get User List service.The result has been checked to be correct.
 
 # Karate Cases - Get User List
@@ -71,9 +71,9 @@ There are scenarios of service automations. An explanation of these scenarios an
 # Karate Cases - Remove User
 | Scenario Name | Scenario Description | Risk | Precedence | Regression Type | Expected Result | Status |
 |-------------| ------ | ------| ------ | ------| ------ | ------|
-| Remove User | The user given in the user_id variable is deleted. | High | High | Daily | Status Code 200 dönmesi | OK |
-| Remove User - Get The Deleted Customer | The deleted user is get again. | High | High | Daily | Status Code 200 dönmesi | OK |
-| Remove User - Wrong User Id | Deletion is done with wrong user information. | Middle | Middle | Weekly | Status Code 400 | OK |
+| Remove User | The user given in the user_id variable is deleted. | High | High | Daily | Status Code 204 dönmesi | OK |
+| Remove User - Get The Deleted Customer | The deleted user is get again. | High | High | Daily | Status Code 400 dönmesi | OK |
+| Remove User - Wrong User Id | Deletion is done with wrong user information. | Middle | Middle | Weekly | Status Code 404 | OK |
 
 > Patch method is used for Switch User Activity service.The values of true and false are used for user activity.Leaving the isActive field blank.A value other than a boolean value is used.
 
@@ -91,9 +91,9 @@ There are scenarios of service automations. An explanation of these scenarios an
 | Scenario Name | Scenario Description | Risk | Precedence | Regression Type | Expected Result | Status |
 |-------------| ------ | ------| ------ | ------| ------ | ------|
 | Update User Info - UserId Not-null Control | If the user id is not-null, it means the user has been updated. | High | High | Daily | Status Code 200 | OK |
-| Update User Info - Minimum Value | The user is updated by entering the minimum value determined for the required fields. | Middle | Middle | Weekly | Status Code 201 | OK |
-| Update User Info - Intermediate Value | The user is updated by entering the intermediate value determined for the required fields. | Middle | Middle | Weekly | Status Code 201 | OK |
-| Update User Info - Maximum Value | The user is updated by entering the maximum value determined for the required fields. | Middle | Middle | Weekly | Status Code 201 | OK |
+| Update User Info - Minimum Value | The user is updated by entering the minimum value determined for the required fields. | Middle | Middle | Weekly | Status Code 200 | OK |
+| Update User Info - Intermediate Value | The user is updated by entering the intermediate value determined for the required fields. | Middle | Middle | Weekly | Status Code 200 | OK |
+| Update User Info - Maximum Value | The user is updated by entering the maximum value determined for the required fields. | Middle | Middle | Weekly | Status Code 200 | OK |
 | Update User Info - Leaving The Firstname Field Blank | The user is updated by leaving the required firstname field blank. | High | High | Daily | Status Code 400 | OK |
 | Update User Info - Leaving The Lastname Field Blank | The user is updated by leaving the required lastname field blank. | High | High | Daily | Status Code 400 | OK |
 | Update User Info - Leaving The Firstname and Lastname Fields Blank | The user is updated by leaving the required firstname and lastname fields blank. | High | High | Daily | Status Code 400 | OK |
