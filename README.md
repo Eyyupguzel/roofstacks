@@ -1,7 +1,7 @@
 # RoofStacks
 ## _Case Çalışması_
 
-[![N|Solid](C:\Users\Testinium\Desktop\roof_stacks\src\test\java\Karate_Features\image001.png)](https://nodesource.com/products/nsolid)
+[![N|Solid](https://github.com/Eyyupguzel/roofstacks/blob/main/roof_stacks/src/test/java/Karate_Features/roof.png)](https://nodesource.com/products/nsolid)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
