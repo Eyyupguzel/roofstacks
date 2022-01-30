@@ -1,4 +1,4 @@
-Feature: user Details
+Feature: createUsers
 
   Background:
     * def user = read('data.json')
