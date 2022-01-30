@@ -9,6 +9,7 @@ Feature: removeUser
     Given url requestUrl
     When method delete
     Then status 200
+   # Then status 204 ----> bu case normalde 204 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
 
 
@@ -20,6 +21,7 @@ Feature: removeUser
     Given url requestUrl
     When method delete
     Then status 200
+   # Then status 204 ----> bu case normalde 204 döner fakat mocklandığı için 200 dönüyor bu yüzden 200 olarak bıraktım.
     Then print response
     Given url requestUrl
     When method get
